@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#cffe00" stop-opacity="0.5" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Editor Window -->
+  <rect width="800" height="500" rx="16" fill="url(#bg)"/>
+  
+  <!-- Window Header -->
+  <rect width="800" height="42" fill="#090d16" rx="16"/>
+  <rect y="30" width="800" height="12" fill="#090d16"/>
+  <circle cx="28" cy="21" r="6" fill="#ef4444"/>
+  <circle cx="48" cy="21" r="6" fill="#eab308"/>
+  <circle cx="68" cy="21" r="6" fill="#22c55e"/>
+  <text x="400" y="26" fill="#64748b" font-family="monospace" font-size="13" text-anchor="middle">voice_inference_stream.py</text>
+  
+  <!-- Code Lines -->
+  <g font-family="monospace" font-size="14" font-weight="500">
+    <text x="40" y="85" fill="#64748b">01</text>
+    <text x="80" y="85" fill="#f43f5e">import</text>
+    <text x="140" y="85" fill="#f8fafc">torch, torchaudio</text>
+    <text x="290" y="85" fill="#64748b"># Neural Audio Pipeline</text>
+    
+    <text x="40" y="115" fill="#64748b">02</text>
+    <text x="80" y="115" fill="#f43f5e">from</text>
+    <text x="125" y="115" fill="#f8fafc">whisper_streaming</text>
+    <text x="280" y="115" fill="#f43f5e">import</text>
+    <text x="340" y="115" fill="#38bdf8">RealtimeInferenceEngine</text>
+    
+    <text x="40" y="155" fill="#64748b">03</text>
+    <text x="80" y="155" fill="#cffe00">class</text>
+    <text x="135" y="155" fill="#38bdf8">AudioNeuralStream</text>
+    <text x="285" y="155" fill="#f8fafc">:</text>
+    
+    <text x="40" y="185" fill="#64748b">04</text>
+    <text x="110" y="185" fill="#f43f5e">def</text>
+    <text x="145" y="185" fill="#38bdf8">__init__</text>
+    <text x="215" y="185" fill="#f8fafc">(self, model_id="whisper-v3-turbo"):</text>
+    
+    <text x="40" y="215" fill="#64748b">05</text>
+    <text x="140" y="215" fill="#f8fafc">self.pipeline = RealtimeInferenceEngine(device="cuda:0")</text>
+    
+    <text x="40" y="245" fill="#64748b">06</text>
+    <text x="140" y="245" fill="#f8fafc">self.latency_buffer = []</text>
+    
+    <text x="40" y="285" fill="#64748b">07</text>
+    <text x="110" y="285" fill="#f43f5e">async def</text>
+    <text x="195" y="285" fill="#38bdf8">process_chunk</text>
+    <text x="310" y="285" fill="#f8fafc">(self, pcm_chunk: bytes):</text>
+    
+    <text x="40" y="315" fill="#64748b">08</text>
+    <text x="140" y="315" fill="#64748b"># Process sub-80ms tensor chunk with FP16 precision</text>
+    
+    <text x="40" y="345" fill="#64748b">09</text>
+    <text x="140" y="345" fill="#f8fafc">tensor = torch.from_numpy(pcm_chunk).to("cuda:0").half()</text>
+    
+    <text x="40" y="375" fill="#64748b">10</text>
+    <text x="140" y="375" fill="#f43f5e">yield</text>
+    <text x="190" y="375" fill="#cffe00">await</text>
+    <text x="240" y="375" fill="#f8fafc">self.pipeline.decode_tokens(tensor)</text>
+  </g>
+  
+  <!-- Audio Waveform Visualizer Graphic -->
+  <rect x="40" y="415" width="720" height="50" rx="8" fill="#090d16" stroke="#1e293b"/>
+  <path d="M 60 440 Q 80 415, 100 440 T 140 440 T 180 420 T 220 455 T 260 440 T 300 410 T 340 460 T 380 430 T 420 440 T 460 415 T 500 455 T 540 435 T 580 445 T 620 425 T 660 445 T 700 438 L 740 440" fill="none" stroke="url(#glow)" stroke-width="3" stroke-linecap="round"/>
+</svg>
+

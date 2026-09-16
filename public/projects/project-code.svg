@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="glow2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Editor Window -->
+  <rect width="800" height="500" rx="16" fill="url(#bg2)"/>
+  
+  <!-- Window Header -->
+  <rect width="800" height="42" fill="#030712" rx="16"/>
+  <rect y="30" width="800" height="12" fill="#030712"/>
+  <circle cx="28" cy="21" r="6" fill="#ef4444"/>
+  <circle cx="48" cy="21" r="6" fill="#eab308"/>
+  <circle cx="68" cy="21" r="6" fill="#22c55e"/>
+  <text x="400" y="26" fill="#64748b" font-family="monospace" font-size="13" text-anchor="middle">video_diffusion_pipeline.py</text>
+  
+  <!-- Code Lines -->
+  <g font-family="monospace" font-size="14" font-weight="500">
+    <text x="40" y="85" fill="#64748b">01</text>
+    <text x="80" y="85" fill="#a855f7">import</text>
+    <text x="140" y="85" fill="#f8fafc">diffusers, torch</text>
+    
+    <text x="40" y="115" fill="#64748b">02</text>
+    <text x="80" y="115" fill="#a855f7">class</text>
+    <text x="135" y="115" fill="#38bdf8">TemporalVideoDenoiser</text>
+    <text x="325" y="115" fill="#f8fafc">(torch.nn.Module):</text>
+    
+    <text x="40" y="155" fill="#64748b">03</text>
+    <text x="110" y="155" fill="#f43f5e">def</text>
+    <text x="145" y="155" fill="#38bdf8">forward</text>
+    <text x="215" y="155" fill="#f8fafc">(self, latent_trajectory, prompt_embeds):</text>
+    
+    <text x="40" y="185" fill="#64748b">04</text>
+    <text x="140" y="185" fill="#64748b"># Compute temporal cross-attention for 60fps smoothing</text>
+    
+    <text x="40" y="215" fill="#64748b">05</text>
+    <text x="140" y="215" fill="#f8fafc">hidden_states = self.temporal_attn(latent_trajectory)</text>
+    
+    <text x="40" y="245" fill="#64748b">06</text>
+    <text x="140" y="245" fill="#f8fafc">motion_vectors = self.optical_flow_head(hidden_states)</text>
+    
+    <text x="40" y="275" fill="#64748b">07</text>
+    <text x="140" y="275" fill="#cffe00">return</text>
+    <text x="200" y="275" fill="#f8fafc">self.vae.decode_video(motion_vectors)</text>
+  </g>
+  
+  <!-- Visual Frame Reel Preview -->
+  <g transform="translate(40, 310)">
+    <rect width="135" height="150" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.5"/>
+    <circle cx="67" cy="75" r="28" fill="url(#glow2)"/>
+    <text x="67" y="130" fill="#a5b4fc" font-family="monospace" font-size="11" text-anchor="middle">Frame 001</text>
+    
+    <rect x="145" width="135" height="150" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.5"/>
+    <circle cx="212" cy="75" r="32" fill="url(#glow2)"/>
+    <text x="212" y="130" fill="#a5b4fc" font-family="monospace" font-size="11" text-anchor="middle">Frame 012</text>
+
+    <rect x="290" width="135" height="150" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.5"/>
+    <circle cx="357" cy="75" r="36" fill="url(#glow2)"/>
+    <text x="357" y="130" fill="#a5b4fc" font-family="monospace" font-size="11" text-anchor="middle">Frame 024</text>
+
+    <rect x="435" width="135" height="150" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.5"/>
+    <circle cx="502" cy="75" r="32" fill="url(#glow2)"/>
+    <text x="502" y="130" fill="#a5b4fc" font-family="monospace" font-size="11" text-anchor="middle">Frame 036</text>
+
+    <rect x="580" width="140" height="150" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.5"/>
+    <circle cx="650" cy="75" r="28" fill="url(#glow2)"/>
+    <text x="650" y="130" fill="#a5b4fc" font-family="monospace" font-size="11" text-anchor="middle">Frame 048</text>
+  </g>
+</svg>
+
