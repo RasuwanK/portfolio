@@ -89,10 +89,6 @@ export function Navbar() {
             href="#contact"
             className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider bg-black text-[#cffe00] px-4 py-2 rounded-full border-2 border-black shadow-[2px_2px_0_0_#000000] hover:bg-neutral-900 hover:scale-105 active:scale-95 transition-all"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cffe00] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cffe00]"></span>
-            </span>
             Let&apos;s Talk
             <ArrowUpRight className="size-3.5" />
           </a>

@@ -25,10 +25,10 @@ export function HeroSection() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 w-full">
         {/* Availability Pill */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black text-[#cffe00] border-2 border-black text-xs font-mono font-semibold tracking-wide shadow-[3px_3px_0_0_#ffffff] mb-8 hover:scale-105 transition-transform cursor-default">
-          <span className="relative flex h-2 w-2">
+          {/* <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cffe00] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cffe00]"></span>
-          </span>
+          </span> */}
           <span>{personal.availability}</span>
         </div>
 
