@@ -57,7 +57,7 @@ export interface PortfolioData {
 export const portfolioData: PortfolioData = {
   personal: {
     name: "Rasuwan Kalhara",
-    domain: "rasuwan.com",
+    domain: "rasuwan.dev",
     tagline: "AI SOFTWARE ENGINEER . CREATIVE DIRECTOR . TEACHER",
     headline: {
       line1: "CREATIVE",
@@ -65,8 +65,8 @@ export const portfolioData: PortfolioData = {
     },
     roles: ["AI SOFTWARE ENGINEER", "CREATIVE DIRECTOR", "TEACHER"],
     bio: "Building cutting-edge autonomous agents, multi-modal generative AI pipelines, and high-performance interactive web experiences.",
-    email: "kalhara@rasuwan.com",
-    phone: "+94 (77) 123-4567",
+    email: "kalharaweagala@gmail.com",
+    phone: "+94 705 085 269",
     location: "Colombo, Sri Lanka (Available Globally)",
     availability: "Open for AI consulting & senior engineering roles",
     cvUrl: "#", // Replace with your resume link (e.g., /resume.pdf or Google Drive link)
